@@ -1,0 +1,11 @@
+### Successful test: check response status is 200
+GET http://localhost:8080/api/get/ping
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+###
+PUT http://localhost:8080/api/put/content?cont=123
