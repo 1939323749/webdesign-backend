@@ -3,7 +3,7 @@ package get
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"mygo/utils/bilibili"
+	"mygo/pkg/bilibili"
 	"os"
 )
 
@@ -16,5 +16,6 @@ func Bilibilisearch(c *gin.Context) {
 		bilibili.Bilibili(str)
 		return
 	}
-	defer fl.Close()
+	err = fl.Close()
+	panic(err)
 }
