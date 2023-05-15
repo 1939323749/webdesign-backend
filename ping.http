@@ -10,3 +10,6 @@ GET http://localhost:8080/api/bp?url=https://www.bilibili.com/video/BV11s4y1Q7Yf
 
 ###
 GET http://localhost:8080/api/getvideo
+
+###
+GET https://api.bilibili.com/x/web-interface/view?bvid=BV1uz4y1Y7A5

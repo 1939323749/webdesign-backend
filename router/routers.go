@@ -30,7 +30,7 @@ func InitRouter() *gin.Engine {
 		fmt.Println()
 		r.HandleContext(c)
 	})
-	apiv1.GET("/bp", get2.Bilibiliparser)
+	apiv1.POST("/post/bili", post.Bilibilicontribute)
 	apiv1.GET("/getvideo", get2.GetVideo)
 	apiv1.POST("/post/upload", post.Upload)
 	apiv1.PUT("/put/content", put.Content)

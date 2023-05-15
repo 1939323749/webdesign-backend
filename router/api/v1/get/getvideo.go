@@ -44,12 +44,14 @@ func GetVideo(c *gin.Context) {
 	// 格式化视频文档，并构建返回结果
 	var formattedVideos []gin.H
 	for _, video := range videos {
+		bvid := video["bvid"]
 		id := video["id"]
 		url := video["cover"]
 		category := video["category"]
 		description := video["description"]
 
 		formattedVideo := gin.H{
+			"bvid":        bvid,
 			"id":          id,
 			"url":         url,
 			"category":    category,
