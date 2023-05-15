@@ -1,5 +1,6 @@
 ### Successful test: check response status is 200
-GET http://localhost:8080/api/get/ping
+GET http://localhost:8080/api/bp?url=https://www.bilibili.com/video/BV11s4y1Q7Yf/?spm_id_from=333.934.0.0&vd_source=7d38dd52ce866e656fec20561e6ad46d
+
 
 > {%
     client.test("Request executed successfully", function() {
@@ -8,4 +9,4 @@ GET http://localhost:8080/api/get/ping
 %}
 
 ###
-PUT http://localhost:8080/api/put/content?cont=123
+GET http://localhost:8080/api/getvideo
