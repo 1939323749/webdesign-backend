@@ -10,16 +10,20 @@ import (
 	"net/http"
 )
 
-func GetVideo(c *gin.Context) {
+func Getvideobycategory(c *gin.Context) {
+
+	var category string = c.Query("c")
 	cli, er := mongo.NewClient(options.Client().ApplyURI("mongodb://localhost:27017"))
 	if er != nil {
 		fmt.Println(er)
+		return
 	}
 
 	ctx := context.TODO()
 	err := cli.Connect(ctx)
 	if err != nil {
 		fmt.Println(er)
+		return
 	}
 
 	defer cli.Disconnect(ctx)
@@ -27,8 +31,8 @@ func GetVideo(c *gin.Context) {
 	db := cli.Database("local")
 	collection := db.Collection("video")
 
-	// 执行查询操作，获取所有视频文档
-	cursor, err := collection.Find(ctx, bson.M{})
+	// 执行查询操作，获取匹配类别的视频文档
+	cursor, err := collection.Find(ctx, bson.M{"category": category})
 	if err != nil {
 		fmt.Println(err)
 		return

@@ -32,8 +32,11 @@ func InitRouter() *gin.Engine {
 	})
 	apiv1.POST("/post/bili", post.Bilibilicontribute)
 	apiv1.GET("/getvideo", get2.GetVideo)
+	apiv1.GET("/getvbyc", get2.Getvideobycategory)
+	apiv1.GET("/getvbys", get2.Getvideobysearch)
 	apiv1.POST("/post/upload", post.Upload)
 	apiv1.PUT("/put/content", put.Content)
+	apiv1.PUT("/put/ratebybvid", put.UpdateRating)
 	r.GET("/cookie", cookie.Cookie)
 	return r
 }

@@ -13,12 +13,13 @@ import (
 )
 
 type Contribution struct {
-	Bvid        string `bson:"bvid"`
-	Category    string `bson:"category"`
-	Cover       string `bson:"cover"`
-	Description string `bson:"description"`
-	ID          int    `bson:"id"`
-	Vote        int    `bson:"vote"`
+	Bvid        string    `bson:"bvid"`
+	Category    string    `bson:"category"`
+	Cover       string    `bson:"cover"`
+	Description string    `bson:"description"`
+	ID          int       `bson:"id"`
+	Vote        int       `bson:"vote"`
+	Time        time.Time `bson:"time"`
 }
 type Body struct {
 	Url      string `json:"url"`
@@ -75,6 +76,7 @@ func Bilibilicontribute(c *gin.Context) {
 		Description: description,
 		ID:          counter.Seq,
 		Vote:        0,
+		Time:        time.Now(),
 	}
 
 	// 将 Contribution 插入到 video 集合中
