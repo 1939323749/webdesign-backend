@@ -51,6 +51,8 @@ func GetVideo(c *gin.Context) {
 		description := video["description"]
 		vote := video["vote"]
 		time := video["time"]
+		rating := video["rating"]
+		ratingCount := video["ratingCount"]
 
 		formattedVideo := gin.H{
 			"bvid":        bvid,
@@ -60,6 +62,8 @@ func GetVideo(c *gin.Context) {
 			"description": description,
 			"vote":        vote,
 			"time":        time,
+			"rating":      rating,
+			"ratingCount": ratingCount,
 		}
 
 		formattedVideos = append(formattedVideos, formattedVideo)
