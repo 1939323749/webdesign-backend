@@ -18,7 +18,8 @@ type Contribution struct {
 	Cover       string    `bson:"cover"`
 	Description string    `bson:"description"`
 	ID          int       `bson:"id"`
-	Vote        int       `bson:"vote"`
+	Rating      float32   `bson:"rating"`
+	RatingCount int       `bson:"ratingCount"`
 	Time        time.Time `bson:"time"`
 }
 type Body struct {
@@ -75,7 +76,8 @@ func Bilibilicontribute(c *gin.Context) {
 		Cover:       cover,
 		Description: description,
 		ID:          counter.Seq,
-		Vote:        0,
+		Rating:      5,
+		RatingCount: 0,
 		Time:        time.Now(),
 	}
 
